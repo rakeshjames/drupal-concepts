@@ -14,6 +14,15 @@ A comprehensive Drupal enablement program that blends theory, live demos, and la
 - Each module combines 30–40 minute lecture, 20 minute demo, and 30–45 minute lab.
 - Provide slide deck, repo with starter configs, sample CSVs/APIs, and solution branch per lab.
 
+## Local Environment Setup (DDEV)
+1. Install prerequisites: recent Docker Desktop + [DDEV](https://ddev.readthedocs.io/en/stable/). Verify with `ddev version`.
+2. Clone the training repository and enter the project directory.
+3. Run `ddev config --project-name=drupal-training --docroot=docroot --php-version=8.2 --project-type=drupal10` (adjust values as needed).
+4. Start services via `ddev start`; confirm containers and local URLs from the CLI summary.
+5. Import the provided database dump with `ddev import-db --src=./resources/db.sql.gz` and files via `ddev import-files --src=./resources/files`.
+6. Run `ddev drush cr` and `ddev drush uli` to rebuild caches and obtain a one-time login link.
+7. (Optional) Enable Xdebug using `ddev xdebug on` when debugging, then `ddev xdebug off` afterward to keep the stack fast.
+
 ---
 
 ## Track 1 · Site Building & Content Modeling
