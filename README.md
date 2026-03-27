@@ -7,7 +7,7 @@ A comprehensive Drupal enablement program that blends theory, live demos, and la
 ## Audience & Prerequisites
 - Drupal site builders, backend developers, and front-end themers with basic PHP and Git exposure.
 - Comfortable with HTML/CSS/JS fundamentals and command-line tooling.
-- Local environment ready (Lando/DDEV, Composer, Node toolchain) with access to a Drupal 10 sandbox.
+- Local environment ready (Lando/DDEV, Composer, Node toolchain) with access to a Drupal 11 sandbox.
 
 ## Delivery Logistics
 - Recommended cadence: 4 days (6 hours/day) or 8 half-days.
@@ -17,7 +17,7 @@ A comprehensive Drupal enablement program that blends theory, live demos, and la
 ## Local Environment Setup (DDEV)
 1. Install prerequisites: recent Docker Desktop + [DDEV](https://ddev.readthedocs.io/en/stable/). Verify with `ddev version`.
 2. Clone the training repository and enter the project directory.
-3. Run `ddev config --project-name=drupal-training --docroot=docroot --php-version=8.2 --project-type=drupal10` (adjust values as needed).
+3. Run `ddev config --project-name=drupal-training --docroot=docroot --php-version=8.2 --project-type=drupal11` (adjust values as needed).
 4. Start services via `ddev start`; confirm containers and local URLs from the CLI summary.
 5. Import the provided database dump with `ddev import-db --src=./resources/db.sql.gz` and files via `ddev import-files --src=./resources/files`.
 6. Run `ddev drush cr` and `ddev drush uli` to rebuild caches and obtain a one-time login link.
@@ -57,6 +57,14 @@ A comprehensive Drupal enablement program that blends theory, live demos, and la
 - Contextual filters, relationships, exposed filters, aggregations.
 - Caching strategies, query tags, debugging.
 - **Lab**: Build `Resources` view with contextual author filter and attachment showing featured items.
+
+### 7. Event Page & Calendar via Configuration
+- Contributed modules: enable Calendar (or Fullcalendar View) plus Date Recur; rely solely on configuration (no custom PHP).
+- Content modeling: create `Event` content type with start/end, recurrence, location taxonomy, and media attachments.
+- Views configuration: build calendar display driven by Events, add month/week/day displays, contextual filters, and exposed taxonomy filters.
+- Menu & block setup: place calendar page under `/events`, add upcoming events block to homepage via Layout Builder.
+- Permissions & workflow: configure editorial workflow states, moderation dashboard, and permissions for event editors.
+- **Lab**: Using only configuration and contributed modules, deliver an Events hub featuring calendar page, upcoming block, and subscription-friendly iCal feed.
 
 ---
 
